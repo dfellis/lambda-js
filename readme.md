@@ -43,6 +43,7 @@ var l = require('lambda-js');
 	.map(l("x", "x*2"))
 	.reduce(l("sum, val", "sum + val"));
 ```
+
 ## License (MIT)
 
 Copyright (C) 2012 by David Ellis

@@ -19,17 +19,17 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.</p>             </td>             <td class="code">               <div class="highlight"><pre><span class="kd">var</span> <span class="nx">l</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">lambdaHash</span> <span class="o">=</span> <span class="p">{};</span>
-	<span class="k">return</span> <span class="kd">function</span> <span class="nx">lambda</span><span class="p">(</span><span class="nx">args</span><span class="p">,</span> <span class="nx">expression</span><span class="p">)</span> <span class="p">{</span>
-		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">lambdaHash</span><span class="p">[</span><span class="nx">args</span><span class="o">+</span><span class="nx">expression</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nb">Function</span><span class="p">))</span> <span class="p">{</span>
-			<span class="nx">lambdaHash</span><span class="p">[</span><span class="nx">args</span><span class="o">+</span><span class="nx">expression</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="nx">args</span><span class="p">,</span> <span class="s2">&quot;return &quot;</span> <span class="o">+</span> <span class="nx">expression</span><span class="p">);</span>
-		<span class="p">}</span>
-		<span class="k">return</span> <span class="nx">lambdaHash</span><span class="p">[</span><span class="nx">args</span><span class="o">+</span><span class="nx">expression</span><span class="p">];</span>
-	<span class="p">};</span>
+  <span class="kd">var</span> <span class="nx">lambdaHash</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="k">return</span> <span class="kd">function</span> <span class="nx">lambda</span><span class="p">(</span><span class="nx">args</span><span class="p">,</span> <span class="nx">expression</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">lambdaHash</span><span class="p">[</span><span class="nx">args</span><span class="o">+</span><span class="nx">expression</span><span class="p">]</span> <span class="k">instanceof</span> <span class="nb">Function</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">lambdaHash</span><span class="p">[</span><span class="nx">args</span><span class="o">+</span><span class="nx">expression</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="nx">args</span><span class="p">,</span> <span class="s2">&quot;return &quot;</span> <span class="o">+</span> <span class="nx">expression</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">lambdaHash</span><span class="p">[</span><span class="nx">args</span><span class="o">+</span><span class="nx">expression</span><span class="p">];</span>
+  <span class="p">};</span>
 <span class="p">})();</span>
 
 <span class="k">if</span><span class="p">(</span><span class="nx">module</span> <span class="o">&amp;&amp;</span> <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">l</span><span class="p">;</span>
+  <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">l</span><span class="p">;</span>
 <span class="p">}</span>
 
 </pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 

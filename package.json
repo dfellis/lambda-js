@@ -3,7 +3,7 @@
 	"description": "Syntactic sugar for lambda one-liners in Javascript that doesn't include a performance penalty",
 	"homepage": "https://github.com/dfellis/lambda-js",
 	"author": "David Ellis",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"main": "./lib/lambda",
 	"dependencies": {},
 	"devDependencies": {
@@ -15,7 +15,7 @@
 		"node": "*"
 	},
 	"scripts": {
-		"prepublish": "npm test && docco ./lib/lambda.js && uglifyjs ./lib/lambda.js > ./lib/lambda.min.js && git commit -am \"Automatic doc and minification for version $npm_package_version\" && git tag $npm_package_version && git push && git push --tags",
+		"realpublish": "npm test && docco ./lib/lambda.js && uglifyjs ./lib/lambda.js > ./lib/lambda.min.js && git commit -am \"Automatic doc and minification for version $npm_package_version\" && git tag $npm_package_version && git push && git push --tags && npm publish",
 		"test": "nodeunit ./test/test.js"
 	}
 }

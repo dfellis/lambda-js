@@ -30,7 +30,7 @@ exports.speed = function(test) {
 	console.log("Lambda Function Time:                    " + lambdaTime + "ms");
 
 	test.ok(lambdaTime < naiveTime, "'inline' construction of a lambda doesn't have normal inline penalty cost");
-	test.ok(lambdaTime / preConstructedTime < 10, "lambda construction/retrieval overhead not significant");
-	test.ok(lambdaTime / normalTime < 10, "lambda overhead not significant versus 'standard' functions");
+	test.ok(lambdaTime / preConstructedTime < 20, "lambda construction/retrieval overhead not significant");
+	test.ok(lambdaTime / normalTime < 20, "lambda overhead not significant versus 'standard' functions");
 	test.done();
 };

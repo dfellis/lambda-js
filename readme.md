@@ -1,4 +1,4 @@
-# lambda-js [![Build Status](https://travis-ci.org/dfellis/lambda-js.png?branch=master)](undefined)
+# lambda-js [![Build Status](https://travis-ci.org/dfellis/lambda-js.png?branch=master)](https://travis-ci.org/dfellis/lambda-js)
 
 ## Quick install instructions
 

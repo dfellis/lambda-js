@@ -44,9 +44,30 @@ var l = require('lambda-js');
 	.reduce(l("sum, val", "sum + val"));
 ```
 
+Lambdas are "pure" functions, not closures, so the following won't work:
+
+```js
+var l = require('lambda-js');
+var foo = 'bar';
+var impureLambda = l('baz', 'foo + baz'); // Will throw a ReferenceError, foo not defined
+```
+
+But pure functions are perfectly predictable because their output is totally determined by their inputs, and the closures where they are defined cannot affect their behavior, so it can also be useful to "scrub" a larger function with lambda-js:
+
+```js
+var l = require('lambda-js');
+var scrubbedFunction = l(function(foo, bar) {
+    var foosin = Math.sin(foo*foo);
+    var barrep = bar.replace(/bar/g, 'baz');
+    return foosin + barrep;
+});
+```
+
+Lambda-js attaches a ``pure`` property to the lambdas (with a value of ``true``), which can be used by other libraries to determine if the function they have been provided is a pure function or a closure.
+
 ## License (MIT)
 
-Copyright (C) 2012 by David Ellis
+Copyright (C) 2012-2013 by David Ellis
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

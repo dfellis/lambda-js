@@ -8,6 +8,28 @@ function speedTest(adder) {
 	return Date.now() - start;
 }
 
+exports.verboseLambda = function(test) {
+    test.expect(4);
+    var adderNormal = function(a, b) { return a + b; };
+    var adderLambda = l("a,b", "a+b");
+    var adderVerboseLambda = l(function(a, b) { return a + b; });
+    test.equal(adderNormal(1, 2), adderLambda(1, 2));
+    test.equal(adderLambda(3, 4), adderVerboseLambda(3, 4));
+    test.notEqual(adderNormal.pure, adderLambda.pure);
+    test.equal(adderLambda.pure, adderVerboseLambda.pure);
+    test.done();
+};
+
+exports.lambdaPurity = function(test) {
+    test.expect(3);
+    var foo = 'bar';
+    var impureLambda = function() { return foo; };
+    test.equal(impureLambda(), 'bar');
+    test.throws(l('', 'foo'));
+    test.throws(l(function() { return foo; }));
+    test.done();
+};
+
 exports.speed = function(test) {
 	test.expect(3);
 	var adderNormal = function(a, b) { return a + b; };

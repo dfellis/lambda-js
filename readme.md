@@ -65,6 +65,21 @@ var scrubbedFunction = l(function(foo, bar) {
 
 Lambda-js attaches a ``pure`` property to the lambdas (with a value of ``true``), which can be used by other libraries to determine if the function they have been provided is a pure function or a closure.
 
+If you need to transmit lambdas over the wire, Lambda-js provides a simple serialization and deserialization mechanism.
+
+```js
+var l = require('lambda-js');
+var funcObj = l.serialize(function(foo, bar) {
+    var foosin = Math.sin(foo*foo);
+    var barrep = bar.replace(/bar/g, 'baz');
+    return foosin + barrep;
+});
+
+var funcObjStr = JSON.stringify(funcObj); // Doesn't throw
+
+var func = l.deserialize(funcObj);
+```
+
 ## License (MIT)
 
 Copyright (C) 2012-2013 by David Ellis

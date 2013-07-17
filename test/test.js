@@ -30,6 +30,28 @@ exports.lambdaPurity = function(test) {
     test.done();
 };
 
+exports.serializer = function(test) {
+    test.expect(1);
+    test.doesNotThrow(function() {
+        JSON.stringify(l.serialize(function foo(arg1, arg2) {
+            return arg1 + arg2;
+        }));
+    });
+    test.done();
+};
+
+exports.deserializer = function(test) {
+    test.expect(2);
+    var funcObj = l.serialize(function foo(arg1, arg2) {
+        return arg1 + arg2;
+    });
+    test.doesNotThrow(function() {
+        var func = l.deserialize(funcObj);
+        test.equal(3, func(1, 2));
+    });
+    test.done();
+};
+
 exports.speed = function(test) {
 	test.expect(3);
 	var adderNormal = function(a, b) { return a + b; };

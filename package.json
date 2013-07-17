@@ -3,7 +3,7 @@
 	"description": "Syntactic sugar for lambda one-liners in Javascript that doesn't include a performance penalty",
 	"homepage": "https://github.com/dfellis/lambda-js",
 	"author": "David Ellis",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"main": "./lib/lambda",
 	"dependencies": {},
 	"devDependencies": {
